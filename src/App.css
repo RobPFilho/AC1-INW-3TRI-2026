@@ -1,38 +1,138 @@
-.App {
+:root {
+  --primary-color: #4a90e2;
+  --success-color: #2ec4b6;
+  --error-color: #e71d36;
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-color: #2b2d42;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 100%;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn:hover {
+  opacity: 0.9;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.high-score {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #eef5fc;
+  border-radius: 6px;
+  color: #31708f;
+}
+
+.quiz-status {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8d99ae;
+}
+
+.options-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.option-btn {
+  background-color: #f8f9fa;
+  border: 2px solid #edede9;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.option-btn:hover:not(:disabled) {
+  background-color: #edf2f7;
+  border-color: var(--primary-color);
+}
+
+/* Classes dinâmicas para o feedback imediato */
+.option-btn.correct {
+  background-color: #d4edda;
+  border-color: var(--success-color);
+  color: #155724;
+  font-weight: bold;
+}
+
+.option-btn.incorrect {
+  background-color: #f8d7da;
+  border-color: var(--error-color);
+  color: #721c24;
+}
+
+.option-btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.next-btn {
+  background-color: #2b2d42;
+}
+
+.progress-container {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  height: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: var(--success-color);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.result-score strong {
+  display: block;
+  font-size: 48px;
+  color: var(--primary-color);
+  margin: 10px 0;
 }
